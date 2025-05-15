@@ -4,12 +4,13 @@ Count Prior Data Augmentation for SCR models.
 This repository demonstrates 3 different approaches to jointly update N and z when using what I am calling
 "count prior data augmentation". The distinction of this data augmentation approach is that instead of
 inducing a distribution on the z's where N is a derived variable, we work with the distribution of N directly.
-However, we still need z indicator variables. Let's say N ~ Poisson(lambda) and we assume N individuals can be
-allocated to M z indices at random. Then the prior for z[1:M] is 1/(M choose N). We can initialize N and z such
+However, we still need z indicator variables to represent individual effects.
+Let's say N ~ Poisson(lambda) and we assume N individuals can be
+allocated to M (data augmentation limit) z indices at random. Then the prior for z[1:M] is 1/(M choose N). We can initialize N and z such
 that N <- sum(z) and update N and z jointly and maintaining this sum constraint.
 
 I provide three approaches described below. To date, I have been using approach 1 where the asymmetric proposal probabilities
-are canceled by the prior ratio of z[1:M], but approach 2 is somewhat more efficient.
+are canceled by the prior ratio of z[1:M], but approach 2 is somewhat more efficient. These zSamplers are in the NimbleFunctions file.
 
 
 Approach 1: Update 1 z at a time, but multiple updates per iteration.
