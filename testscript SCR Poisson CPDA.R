@@ -70,7 +70,7 @@ conf <- configureMCMC(Rmodel,monitors=parameters, thin=nt,nodes=config.nodes)
 zSampler.use <- 2 #which zSampler do we use?
 
 if(zSampler.use==1){
-  #N/z sampler Option 1: Update 1 z at a time, but multiple updates per iteration.
+  #N/z sampler Approach 1: Update 1 z at a time, but multiple updates per iteration.
   #add update, select one of M-N z=0 inds, 
   #subtract update, select from N z=1 inds, autoreject if select a captured individual.
   #This is what I have used historically, proposal probs cancel with z prior, 1/choose(M,N)
@@ -88,11 +88,11 @@ if(zSampler.use==1){
                                                    N.node=N.node,z.nodes=z.nodes,
                                                    calcNodes=calcNodes),silent = TRUE)
 }else if(zSampler.use==2){
-  #N/z sampler Option 2: Update 1 z at a time, but multiple updates per iteration.
+  #N/z sampler Approach 2: Update 1 z at a time, but multiple updates per iteration.
   #add update, select one of M-N z=0 inds,
   #subtract update, select from N-n.det z=1 inds, so detected individuals are not selected
   #since they are always rejected. Asymmetric proposal probs need to be accounted for here.
-  #Option 2 produces a greater effective sample size per unit time than Option 1
+  #Approach 2 produces a greater effective sample size per unit time than Approach 1
   z.ups <- round(M*0.25) # how many N/z proposals per iteration? Not sure what is optimal, setting to 25% of M here.
   #nodes used for update
   y.nodes <- Rmodel$expandNodeNames(paste("y[1:",M,",1:",J,"]"))
@@ -108,7 +108,7 @@ if(zSampler.use==1){
                                                     calcNodes=calcNodes),silent = TRUE)
   
 }else if(zSampler.use==3){
-  #N/z sampler Option 3: Same as Option 2, but we update multiple z's at a time and this number is tuned.
+  #N/z sampler Approach 3: Same as Approach 2, but we update multiple z's at a time and this number is tuned.
   #We can also do multiple multi z updates per iteration
   #add update, select one of M-N z=0 inds, 
   #subtract update, select from N-n.det z=1 inds, so detected individuals are not selected
