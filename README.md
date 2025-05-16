@@ -3,7 +3,7 @@ Count Prior Data Augmentation for SCR models.
 
 This repository demonstrates 3 different approaches to jointly update N and z when using what I am calling
 "count prior data augmentation". The distinction of this data augmentation approach is that instead of
-inducing a distribution on the z's where N is a derived variable, we work with the distribution of N directly.
+specifying independent distributions on the individual z's that induce a distribution on N, we work with the distribution of N directly.
 However, we still need z indicator variables to represent individual effects.
 Let's say N ~ Poisson(lambda) and we assume N individuals can be
 allocated to M (data augmentation limit) z indices at random. Then the prior for z[1:M] is 1/(M choose N). We can initialize N and z such
