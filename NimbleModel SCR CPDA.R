@@ -1,6 +1,6 @@
 NimModel <- nimbleCode({
   lambda.N ~ dunif(0,1000) #expected abundance
-  p0 ~ dunif(0,10) #baseline detection probability
+  p0 ~ dunif(0,1) #baseline detection probability
   sigma ~ dunif(0,10) #detection spatial scale parameter
   N ~ dpois(lambda.N) #realized abundance
   for(i in 1:M){
