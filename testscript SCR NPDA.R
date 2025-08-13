@@ -1,8 +1,10 @@
+#This script allows you to compare 3 versions of Augustine approach
+
 library(nimble)
 library(coda)
 source("sim.SCR.R")
-source("NimbleModel SCR CPDA.R")
-source("NimbleFunctions SCR CPDA.R")
+source("NimbleModel SCR NPDA.R")
+source("NimbleFunctions SCR NPDA.R")
 source("sSampler.R")
 
 #simulate some data
@@ -156,7 +158,7 @@ Cmcmc <- compileNimble(Rmcmc, project = Rmodel)
 
 # Run the model.
 start.time2 <- Sys.time()
-Cmcmc$run(10000,reset=FALSE) #short run for demonstration. can keep running this line to get more samples
+Cmcmc$run(5000,reset=FALSE) #short run for demonstration. can keep running this line to get more samples
 end.time <- Sys.time()
 end.time - start.time  # total time for compilation, replacing samplers, and fitting
 end.time - start.time2 # post-compilation run time
