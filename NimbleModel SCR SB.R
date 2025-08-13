@@ -3,8 +3,8 @@ NimModel <- nimbleCode({
   p0 ~ dunif(0,1) #baseline detection probability
   sigma ~ dunif(0,10) #detection spatial scale parameter
   N ~ dpois(lambda.N) #realized abundance
-  comb <- lfactorial(M)-lfactorial(N)+lfactorial((N-n)*step(N-n))
-  zerouse ~ dpois(comb)
+  comb <- lfactorial(M)-lfactorial(N)+lfactorial((N-n)*step(N-n)) #log-combinatorial terms for z prior
+  zerouse ~ dpois(comb) #zeros trick in convert log-combinatorial terms to log(1/combinatorial terms)
   #constrain N between n and M
   dummy.data1 ~ dconstraint(N >= n)
   dummy.data2 ~ dconstraint(N <= M)
