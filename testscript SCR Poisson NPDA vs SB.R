@@ -1,4 +1,4 @@
-#this script allows you to compare random-z to ordered-z approaches
+#this script allows you to compare unordered-z to ordered-z approaches
 
 library(nimble)
 library(coda)

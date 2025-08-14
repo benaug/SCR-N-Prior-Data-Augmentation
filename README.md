@@ -22,9 +22,9 @@ However, this requires a custom update that turns individuals on/off at random w
 To date, I have been using approach 1 where the asymmetric proposal probabilities for selecting the individuals to turn on or off are canceled 
 by the prior combinatorial terms, but approach 2 is somewhat more efficient. These zSamplers are in the NimbleFunctions file.
 
-Perhaps a useful distinction in terminology is ordered-z vs. random-z N prior data augmentation.
+Perhaps a useful distinction in terminology is ordered-z vs. unordered-z N prior data augmentation.
 
-What are the advantages of using random-z N prior data augmentation? First, it can be used for conditional on ID latent ID SCR models where individuals 
+What are the advantages of using unordered-z N prior data augmentation? First, it can be used for conditional on ID latent ID SCR models where individuals 
 allocated samples do not stay at the top of the capture history and the number detected is not fixed, which is not compatible with the ordered-z prior.
 If latent individual IDs are marginalized out, ordered-z should generally work. Second, it yields an 
 effective sample size per iteration that is larger, and as implemented, this approach runs about twice as fast. The greater effective sample size is likely related to the
@@ -34,7 +34,7 @@ For example, if the next individual to turn on has a capture probability that is
 is a poor individual to propose to turn on, it can block individuals to propose to turn on that are much more likely to be accepted. You cannot skip over individual N+1,
 you have to wait until the next iteration(s) where its new activity center location (and the new values of other parameters) may make it more likely to be turned on.
 
-Using random-z N prior data augmentation, we randomly select individuals
+Using unordered-z N prior data augmentation, we randomly select individuals
 to turn on/off individually, so one individual does not affect the acceptance of other individuals' indicators. This is also a feature of Bernoulli-z data augmentation, and 
 S&B's w-CDL data augmentation, which I believe is desirable. Then the faster run time is probably fully explained by the fact that I am using an efficient Metropolis-Hastings approach instead
 of the nimble default sampler for N, which is a slice sampler.
@@ -46,7 +46,7 @@ What are the advantages of using a prior on N instead of z? Mainly, an exact Poi
 It also introduces a way to do Jolly-Seber estimation much faster and use Poisson distributions for recruits.
 
 
-Some random-z approach details:
+Some unordered-z approach details:
 
 In all 3 approaches, we choose to add or subtract individuals with probability 0.5. Each approach differs in how we choose individuals
 to add/subtract.
