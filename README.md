@@ -35,7 +35,7 @@ is a poor individual to propose to turn on, it can block individuals to propose 
 you have to wait until the next iteration(s) where its new activity center location (and the new values of other parameters) may make it more likely to be turned on.
 
 Using unordered-z N prior data augmentation, we randomly select individuals
-to turn on/off individually, so one individual does not affect the acceptance of other individuals' indicators. This is also a feature of Bernoulli-z data augmentation, and 
+to turn on/off individually, so one individual does not affect the acceptance of other individuals' indicators. Updating one indicator at a time is also a feature of Bernoulli-z data augmentation, and 
 S&B's w-CDL data augmentation, which I believe is desirable. Then the faster run time is probably fully explained by the fact that I am using an efficient Metropolis-Hastings approach instead
 of the nimble default sampler for N, which is a slice sampler.
 
