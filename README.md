@@ -24,8 +24,9 @@ by the prior combinatorial terms, but approach 2 is somewhat more efficient. The
 
 Perhaps a useful distinction in terminology is ordered-z vs. random-z N prior data augmentation.
 
-What are the advantages of using random-z N prior data augmentation? First, it can be used for latent ID SCR models where individuals 
-allocated samples do not stay at the top of the capture history and the number detected is not fixed, which is not compatible with the ordered-z prior. Second, it yields an 
+What are the advantages of using random-z N prior data augmentation? First, it can be used for conditional on ID latent ID SCR models where individuals 
+allocated samples do not stay at the top of the capture history and the number detected is not fixed, which is not compatible with the ordered-z prior.
+If latent individual IDs are marginalized out, ordered-z should generally work. Second, it yields an 
 effective sample size per iteration that is larger, and as implemented, this approach runs about twice as fast. The greater effective sample size is likely related to the
 fact that individuals must be turned on/off consecutively in the ordered-z approach. 
 For example, if the next individual to turn on has a capture probability that is too high to be consistent with the model parameters
