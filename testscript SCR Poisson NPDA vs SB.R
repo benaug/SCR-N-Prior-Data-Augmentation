@@ -1,4 +1,4 @@
-#this script allows you to compare Augustine to Schofield and Barker
+#this script allows you to compare random-z to ordered-z approaches
 
 library(nimble)
 library(coda)

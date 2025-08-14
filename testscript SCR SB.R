@@ -1,4 +1,4 @@
-#this script runs Schofield and Barker approach
+#this script runs Schofield and Barker approach, ordered-z 
 
 library(nimble)
 library(coda)

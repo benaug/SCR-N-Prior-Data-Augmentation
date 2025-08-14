@@ -1,4 +1,4 @@
-#This script allows you to compare 3 versions of Augustine approach
+#This script allows you to compare 3 versions of the random-z approach
 
 library(nimble)
 library(coda)
