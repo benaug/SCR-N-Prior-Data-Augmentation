@@ -5,7 +5,7 @@ NimModel <- nimbleCode({
   N ~ dpois(lambda.N) #realized abundance
   # comb <- lfactorial(M)-lfactorial(N)+lfactorial((N-n)*step(N-n)) #log-combinatorial terms for z prior
   comb <- lfactorial(M)-lfactorial(N)+lfactorial(N-n) #don't actually need step(N-n) that S&B included
-  zerouse ~ dpois(comb) #zeros trick in convert log-combinatorial terms to log(1/combinatorial terms)
+  zerouse ~ dpois(comb) #zeros trick to convert log-combinatorial terms to log(1/combinatorial terms)
   #constrain N between n and M
   dummy.data1 ~ dconstraint(N >= n)
   dummy.data2 ~ dconstraint(N <= M)
