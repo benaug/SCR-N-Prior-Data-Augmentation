@@ -11,7 +11,7 @@ I explore this below and provide nimble code to fit both approaches.
 https://link.springer.com/article/10.1007/s10651-013-0262-3
 
 
-10/29/25: I added a pdf describing this approach to the repo: N_prior_Data_Augmentation.pdf
+10/29/25: I added a pdf describing this approach to the repo: N_prior_Data_Augmentation.pdf (easier to read in pdf viewer compared to on github)
 
 Both my approach and that of S&B assume that N ~ Poisson(lambda) and require a distribution for [\bm{z}|N] to explain how the N individuals
 are allocated to the indices of \bm{z}. S&B assume that the individuals truly in the population occupy indices 1,...,N and the "false" individuals
