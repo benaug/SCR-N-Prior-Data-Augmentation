@@ -45,8 +45,8 @@ of the nimble default sampler for N, which is a slice sampler.
 What are the advantages of ordered-z data augmentation? It works without a custom update which requires more MCMC knowledge and effort to modify for new model structures.
 The way the step function is used to fill in the z values is very slick!
 
-What are the advantages of using a prior on N instead of z? Mainly, an exact Poisson specification without relying on M being very large relative to N, which in practice never happens.
-It also introduces a way to do Jolly-Seber estimation much faster and use Poisson distributions for recruits.
+What are the advantages of using a prior on N instead of z? Mainly, an exact Poisson specification in multisession and Jolly-Seber models.
+It also introduces a way to do Jolly-Seber estimation much faster when using per capita recruitment as a function of realized abundance.
 
 
 Some unordered-z approach details:
